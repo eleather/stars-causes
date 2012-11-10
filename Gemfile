@@ -22,6 +22,20 @@ end
 
 gem 'jquery-rails'
 
+# From Rails2 Gemfile
+gem 'authlogic', '3.1.3'
+gem 'hoptoad_notifier', '2.4.11'
+
+group :development do
+  gem 'heroku'
+end
+gem 'sqlite3-ruby', '1.2.5'
+gem 'taps'
+
+group :production do
+  gem 'pg'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
