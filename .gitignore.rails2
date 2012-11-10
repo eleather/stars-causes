@@ -1,0 +1,12 @@
+log/*
+*.log
+tmp/*
+*.swp
+*~
+.DS_Store
+config/database.yml
+config/facebooker.yml
+config/initializers/hoptoad.rb
+db/schema.rb
+db/*.sqlite3 
+tmtags
