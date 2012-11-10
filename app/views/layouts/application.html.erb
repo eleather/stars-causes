@@ -1,59 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <title>Stars!</title>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:700,400,600' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="/images/icon.png" />
-    <% @stylesheets.uniq.each do |stylesheet| %>
-      <%= stylesheet_link_tag stylesheet %>
-    <% end %>
-    <%= javascript_include_tag :jquery %>
-    <%= javascript_include_tag 'rails' %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'jquery.scrolling-parallax' %>
-    <%= javascript_include_tag 'chosen.jquery.min' %>
-  </head>
-  <body>
-    <div id="container">
-      <div class="clearfix" id="header">
-        <% if current_user %>
-          <ul class="summary">
-            <li>
-              <%= photo(current_user) %>
-              <span class="star_count">
-                <%= current_user.stars_given.size %> given
-              </span>
-              <span class="star_count">
-                <%= current_user.stars.size %> received
-              </span>
-            </li>
-            <li class="utility_link">
-              <%= link_to image_tag('manage.png'), users_path,
-                :title => 'Users' %>
-            </li>
-            <li class="utility_link">
-              <%= link_to image_tag('sign-out.png'), logout_path,
-                :title => 'Sign Out' %>
-            </li>
-          </ul>
-        <% end %>
-        <%= link_to image_tag('logo.png'), root_path, :class => "logo" %>
-      </div>
-      <% if flash[:notice] %>
-        <div id="flash">
-          <a class="close_link" href="#">
-            <%= image_tag "close-flash.png" %>
-          </a>
-          <%= flash[:notice] %>
-        </div>
-      <% end %>
-      <div class="clearfix" id="content">
-        <%= yield %>
-      </div>
-      <div id="stars"></div>
-      <div id="hills"></div>
-    </div>
-  </body>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StarsCauses</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
 </html>
