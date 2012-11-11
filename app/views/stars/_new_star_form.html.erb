@@ -1,8 +1,8 @@
-<% stylesheet 'chosen' %>
-
-<% form_for(@star, :html => {:class => 'round clearfix',
+<%= form_for(@star, :html => {:class => 'round clearfix',
     :id => 'new_star_form'}) do |f| %>
-  <%= f.error_messages %>
+  <% @star.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
   <% if @user %>
     <h2>Give a star to <%= @user.name %></h2>
     <%= f.hidden_field 'to_ids' %>

@@ -1,8 +1,6 @@
-<% stylesheet 'user_sessions' %>
-
 <div class="round clearfix" %>
   <h2>Star light, star bright&hellip;</h2>
-  <%- form_for @user_session do |f| -%>
+  <%= form_for @user_session do |f| -%>
     <p>
       <%= f.label :email %><br />
       <%= f.text_field :email %>
