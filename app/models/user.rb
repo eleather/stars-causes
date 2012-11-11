@@ -4,9 +4,24 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :stars
 
   has_many :stars_given, :class_name => 'Star', :foreign_key => :from_id
+  
+  attr_accessible :name, :email, :password, :password_confirmation, :facebook_uid
 
-  named_scope :active,   :conditions => {:active => true}
-  named_scope :inactive, :conditions => {:active => false}
+  ###
+  # Named Scopes
+  ###
+
+  def self.active
+    return User.where(:active => true)
+  end
+  
+  def self.inactive
+    return User.where(:active => false)
+  end
+  
+  ###
+  # Instance Methods
+  ###
 
   def can_second?(star)
     return false if [star.from, star.to].flatten.include?(self)

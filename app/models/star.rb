@@ -9,16 +9,26 @@ class Star < ActiveRecord::Base
 
   has_many :comments
   has_many :seconds
+  
+  attr_accessible :star_type, :to_ids, :reason, :from_id
 
-  named_scope :during, lambda { |range|
+  ###
+  # Named Scopes
+  ###
+  
+  def self.during(range)
     start = range.first.to_time.utc
     finish = range.last.to_time.utc
-    {:conditions => {:created_at => start..finish}}
-  }
-  named_scope :recent, lambda { |count|
-    count ||= 10
-    {:order => 'id desc', :limit => count}
-  }
+    Star.where(:created_at => start..finish)
+  end
+  
+  def self.recent(count=10)
+    Star.order('-id').take(count)
+  end
+  
+  ###
+  # Instance Methods
+  ###
 
   # note that this is not "to_sentence" as in "convert star to sentence"
   # but is instead "the sentence representing :to"
