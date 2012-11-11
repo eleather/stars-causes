@@ -4,7 +4,7 @@ class StarsController < ApplicationController
     if request.xhr?
       page = request.headers['page']
       @stars =
-        Star.recent(page_size).all(:offset => (page.to_i - 1) * page_size)
+        Star.recent(page_size).offset((page.to_i - 1) * page_size)
       render :partial => "star", :collection => @stars
     else
       @stars = Star.recent(page_size)

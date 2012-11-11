@@ -19,11 +19,11 @@ class Star < ActiveRecord::Base
   def self.during(range)
     start = range.first.to_time.utc
     finish = range.last.to_time.utc
-    Star.where(:created_at => start..finish)
+    return Star.where(:created_at => start..finish)
   end
   
   def self.recent(count=10)
-    Star.order('-id').take(count)
+    return Star.order('id desc').limit(count)
   end
   
   ###
@@ -76,6 +76,6 @@ class Star < ActiveRecord::Base
   end
 
   after_create do |star|
-    Mailer.deliver_star(star)
+    Mailer.star(star).deliver
   end
 end
