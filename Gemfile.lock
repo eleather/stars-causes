@@ -41,6 +41,14 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
+    columnize (0.3.6)
+    debugger (1.2.1)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.1.1)
+      debugger-ruby_core_source (~> 1.1.4)
+    debugger-linecache (1.1.2)
+      debugger-ruby_core_source (>= 1.1.1)
+    debugger-ruby_core_source (1.1.4)
     erubis (2.7.0)
     excon (0.16.7)
     execjs (1.4.0)
@@ -115,7 +123,8 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.6)
-    sqlite3-ruby (1.2.5)
+    sqlite3-ruby (1.3.3)
+      sqlite3 (>= 1.3.3)
     taps (0.3.24)
       rack (>= 1.0.1)
       rest-client (>= 1.4.0, < 1.7.0)
@@ -137,13 +146,13 @@ PLATFORMS
 DEPENDENCIES
   authlogic (= 3.1.3)
   coffee-rails (~> 3.2.1)
+  debugger
   heroku
   hoptoad_notifier (= 2.4.11)
   jquery-rails
   pg
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)
-  sqlite3
-  sqlite3-ruby (= 1.2.5)
+  sqlite3-ruby (>= 1.3.1)
   taps
   uglifier (>= 1.0.3)
