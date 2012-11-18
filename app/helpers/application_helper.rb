@@ -16,11 +16,25 @@ module ApplicationHelper
   end
 
   def photo(user)
-    image_url =
-      "http://graph.facebook.com/#{user.facebook_uid.to_i}/picture?type=square"
-    link_to image_tag(image_url, :class => 'user_photo', :alt => '',
-                      :title => user.name)
-      user_url(user)
+    if user.facebook_uid
+      fb_uid = user.facebook_uid.to_i
+      image_url = "http://graph.facebook.com/#{fb_uid}/picture?type=square"
+      image_tag = image_tag(
+        image_url, 
+        :class => 'user_photo', 
+        :alt => '',
+        :title => user.name
+      )
+    else
+      image_tag = image_tag(
+        'user.png',
+        :class => 'user_photo', 
+        :alt => '',
+        :title => user.name
+      )
+    end
+      
+    link_to image_tag, user_url(user)
   end
 
   def background_photo(user)
