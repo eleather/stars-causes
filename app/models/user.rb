@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :stars_given, :class_name => 'Star', :foreign_key => :from_id
   
-  attr_accessible :name, :email, :password, :password_confirmation, :facebook_uid
+  attr_accessible :name, :email, :password, :password_confirmation, :facebook_uid, :active
 
   ###
   # Named Scopes
