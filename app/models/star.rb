@@ -10,7 +10,7 @@ class Star < ActiveRecord::Base
   has_many :comments
   has_many :seconds
   
-  attr_accessible :star_type, :to_ids, :reason, :from_id
+  attr_accessible :star_type, :to_ids, :reason, :from_id, :to
 
   ###
   # Named Scopes
