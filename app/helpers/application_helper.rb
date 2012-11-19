@@ -20,7 +20,7 @@ module ApplicationHelper
       fb_uid = user.facebook_uid.to_i
       image_url = "http://graph.facebook.com/#{fb_uid}/picture?type=#{type}"
     else
-      image_url = 'user.png'
+      image_url = asset_path('user.png')
     end
     
     return image_url
